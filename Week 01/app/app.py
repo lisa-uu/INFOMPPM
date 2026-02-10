@@ -9,9 +9,8 @@ st.set_page_config(layout="wide")
 
 # Load the dataset containing book information
 # Note: Adjust the file path to where your BX-Books.csv is located.
-df_books = pd.read_csv('../data/BX-Books.csv', sep=';',
+df_books = pd.read_csv('/Users/lisawang/UU/MPPM/INFOMPPM/Week 01/data/BX-Books.csv', sep=';',
                        encoding='latin-1', low_memory=False)
-
 
 # Initialize a session state for storing the current book's ISBN if not already present
 if 'ISBN' not in st.session_state:
@@ -38,21 +37,21 @@ with info:
 # Display recommendations based on the most reviewed books
 st.subheader('Recommendations based on most reviewed')
 df_most_reviewed = pd.read_csv(
-    'recommendations/recommendations-most-reviewed.csv', sep=';', encoding='latin-1', dtype=object)
+    '/Users/lisawang/UU/MPPM/INFOMPPM/Week 01/app/recommendations/recommendations-most-reviewed.csv', sep=';', encoding='latin-1', dtype=object)
 df_most_reviewed = df_most_reviewed.merge(df_books, on='ISBN')
 t.recommendations(df_most_reviewed)
 
 # Display recommendations based on average rating
 st.subheader('Recommendations based on average rating')
 df_avg_rating = pd.read_csv(
-    'recommendations/recommendations-ratings-avg.csv', sep=';', encoding='latin-1', dtype=object)
+    '/Users/lisawang/UU/MPPM/INFOMPPM/Week 01/app/recommendations/recommendations-ratings-avg.csv', sep=';', encoding='latin-1', dtype=object)
 df_avg_rating = df_avg_rating.merge(df_books, on='ISBN')
 t.recommendations(df_avg_rating)
 
 # Display recommendations based on weighted rating
 st.subheader('Recommendations based on weighted rating')
 df_weighted_rating = pd.read_csv(
-    'recommendations/recommendations-ratings-weight.csv', sep=';', encoding='latin-1', dtype=object)
+    '/Users/lisawang/UU/MPPM/INFOMPPM/Week 01/app/recommendations/recommendations-ratings-weight.csv', sep=';', encoding='latin-1', dtype=object)
 df_weighted_rating = df_weighted_rating.merge(df_books, on='ISBN')
 t.recommendations(df_weighted_rating)
 
