@@ -49,11 +49,11 @@ df_user_ratings = df_ratings[df_ratings['User-ID'] == st.session_state['User-ID'
 
 # display the reviews of the user
 st.subheader('User '+str(st.session_state['User-ID'])+' reviewed')
-df = df_user_ratings.merge(df_books, on='ISBN')
+df = df_user_ratings.merge(df_books, on='ISBN', suffixes=(None, '_2'))
 t.recommendations(df)
 
 # display the recommendations for the user
 st.subheader('Reviews based on Jaccard distance to other users')
 df_recommendations = get_jaccard_recommendations(st.session_state['User-ID'])
-df = df_recommendations.merge(df_books, on='ISBN').head(10)
+df = df_recommendations.merge(df_books, on='ISBN', suffixes=(None, '_2')).head(10)
 t.recommendations(df)
