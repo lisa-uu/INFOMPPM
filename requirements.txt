@@ -27,7 +27,9 @@ attrs==25.4.0
 babel==2.18.0
     # via jupyterlab-server
 beautifulsoup4==4.14.3
-    # via nbconvert
+    # via
+    #   -r requirements.in
+    #   nbconvert
 bleach[css]==6.3.0
     # via nbconvert
 blinker==1.9.0
