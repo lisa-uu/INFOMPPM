@@ -243,4 +243,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Misc
+**/data/**/*.html
+
 # End of https://www.toptal.com/developers/gitignore/api/python,macos,windows,jupyternotebooks
